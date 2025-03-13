@@ -1,662 +1,747 @@
 <!DOCTYPE html>
 <html lang="zh-CN" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ÉùÀ«ÔÃ¶¯ÆÁ - ²úÆ·¸ÅÄî</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>å£°é˜”æ‚¦åŠ¨å± - äº§å“æ¦‚å¿µ</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        :root {
-            /* Soundcore Æ·ÅÆÅäÉ« */
-            --primary: #00C2FF;       /* ÉùÀ«À¶É« */
-            --primary-light: #7FDFFF; /* Ç³À¶É« */
-            --secondary: #0076FF;     /* ÉîÀ¶É« */
-            --accent: #FF5500;        /* ¼¤»î³ÈÉ« */
-            --accent-light: #FFAA80;  /* Ç³³ÈÉ« */
-            --accent-secondary: #9933FF; /* ×ÏÉ«µã×º */
-            --light-bg: #fafafa;
-            --dark-bg: #0d1117;
-            --dark-bg-lighter: #1e1e1e;
-            --light-text: #f0f6fc;
-            --dark-text: #24292e;
-            --card-light: #ffffff;
-            --card-dark: #161b22;
-            --gray-100: #f3f4f6;
-            --gray-200: #e5e7eb;
-            --gray-800: #1f2937;
-            --gray-900: #111827;
-        }
+      :root {
+        /* Soundcore å“ç‰Œé…è‰² */
+        --primary: #00c2ff; /* å£°é˜”è“è‰² */
+        --primary-light: #7fdfff; /* æµ…è“è‰² */
+        --secondary: #0076ff; /* æ·±è“è‰² */
+        --accent: #ff5500; /* æ¿€æ´»æ©™è‰² */
+        --accent-light: #ffaa80; /* æµ…æ©™è‰² */
+        --accent-secondary: #9933ff; /* ç´«è‰²ç‚¹ç¼€ */
+        --light-bg: #fafafa;
+        --dark-bg: #0d1117;
+        --dark-bg-lighter: #1e1e1e;
+        --light-text: #f0f6fc;
+        --dark-text: #24292e;
+        --card-light: #ffffff;
+        --card-dark: #161b22;
+        --gray-100: #f3f4f6;
+        --gray-200: #e5e7eb;
+        --gray-800: #1f2937;
+        --gray-900: #111827;
+      }
 
-        .dark {
-            --bg-color: var(--dark-bg);
-            --text-color: var(--light-text);
-            --card-bg: var(--card-dark);
-            --card-shadow: rgba(0, 194, 255, 0.1);
-            --highlight: var(--primary);
-            --border-color: rgba(0, 194, 255, 0.15);
-            --bg-pattern: rgba(0, 118, 255, 0.03);
-            --icon-bg: rgba(0, 194, 255, 0.1);
-            --heading-color: #ffffff;
-        }
+      .dark {
+        --bg-color: var(--dark-bg);
+        --text-color: var(--light-text);
+        --card-bg: var(--card-dark);
+        --card-shadow: rgba(0, 194, 255, 0.1);
+        --highlight: var(--primary);
+        --border-color: rgba(0, 194, 255, 0.15);
+        --bg-pattern: rgba(0, 118, 255, 0.03);
+        --icon-bg: rgba(0, 194, 255, 0.1);
+        --heading-color: #ffffff;
+      }
 
-        .light {
-            --bg-color: var(--light-bg);
-            --text-color: var(--dark-text);
-            --card-bg: var(--card-light);
-            --card-shadow: rgba(0, 0, 0, 0.05);
-            --highlight: var(--secondary);
-            --border-color: rgba(0, 118, 255, 0.08);
-            --bg-pattern: rgba(0, 194, 255, 0.02);
-            --icon-bg: rgba(0, 194, 255, 0.08);
-            --heading-color: #202124;
-        }
+      .light {
+        --bg-color: var(--light-bg);
+        --text-color: var(--dark-text);
+        --card-bg: var(--card-light);
+        --card-shadow: rgba(0, 0, 0, 0.05);
+        --highlight: var(--secondary);
+        --border-color: rgba(0, 118, 255, 0.08);
+        --bg-pattern: rgba(0, 194, 255, 0.02);
+        --icon-bg: rgba(0, 194, 255, 0.08);
+        --heading-color: #202124;
+      }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s ease, color 0.3s ease;
-            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-image: radial-gradient(var(--bg-pattern) 1px, transparent 1px);
-            background-size: 20px 20px;
-            letter-spacing: 0.01em;
-            line-height: 1.6;
-        }
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        transition: background-color 0.3s ease, color 0.3s ease;
+        font-family: "Noto Sans SC", -apple-system, BlinkMacSystemFont,
+          "Segoe UI", Roboto, sans-serif;
+        background-image: radial-gradient(
+          var(--bg-pattern) 1px,
+          transparent 1px
+        );
+        background-size: 20px 20px;
+        letter-spacing: 0.01em;
+        line-height: 1.6;
+      }
 
-        .feature-card {
-            background-color: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px var(--card-shadow);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-            height: 100%;
-            border: 1px solid var(--border-color);
-            position: relative;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-8px) scale(1.01);
-            box-shadow: 0 15px 35px var(--card-shadow);
-            border-color: var(--primary);
-        }
+      .feature-card {
+        background-color: var(--card-bg);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px var(--card-shadow);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        overflow: hidden;
+        height: 100%;
+        border: 1px solid var(--border-color);
+        position: relative;
+      }
 
-        .feature-card:after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            transition: opacity 0.3s ease;
-            opacity: 0;
-        }
+      .feature-card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 15px 35px var(--card-shadow);
+        border-color: var(--primary);
+      }
 
-        .feature-card:hover:after {
-            opacity: 1;
-        }
+      .feature-card:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        transition: opacity 0.3s ease;
+        opacity: 0;
+      }
 
-        .feature-image-container {
-            width: 100%;
-            height: 220px;
-            overflow: hidden;
-            position: relative;
-            background-color: var(--card-bg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-bottom: 1px solid var(--border-color);
-        }
+      .feature-card:hover:after {
+        opacity: 1;
+      }
 
-        .feature-image {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
+      .feature-image-container {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        position: relative;
+        background-color: var(--card-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-bottom: 1px solid var(--border-color);
+      }
 
-        .feature-card:hover .feature-image {
-            transform: scale(1.05);
-        }
+      .feature-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+      }
 
-        .title-gradient {
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
+      .feature-card:hover .feature-image {
+        transform: scale(1.05);
+      }
 
-        /* ÖØÉè¼ÆµÄÍ¼±êÑùÊ½ */
-        .feature-icon {
-            color: var(--primary);
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 14px;
-            font-size: 1.25rem;
-            position: relative;
-            overflow: hidden;
-            background-color: var(--icon-bg);
-            box-shadow: 0 4px 12px rgba(0, 118, 255, 0.1);
-            transition: all 0.3s ease;
-        }
+      .title-gradient {
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
 
-        .feature-icon:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 194, 255, 0.2), rgba(0, 118, 255, 0.1));
-            border-radius: 14px;
-            z-index: -1;
-        }
+      /* é‡è®¾è®¡çš„å›¾æ ‡æ ·å¼ */
+      .feature-icon {
+        color: var(--primary);
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 14px;
+        font-size: 1.25rem;
+        position: relative;
+        overflow: hidden;
+        background-color: var(--icon-bg);
+        box-shadow: 0 4px 12px rgba(0, 118, 255, 0.1);
+        transition: all 0.3s ease;
+      }
 
-        .feature-card:hover .feature-icon {
-            transform: scale(1.1);
-            color: white;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            box-shadow: 0 6px 16px rgba(0, 118, 255, 0.25);
-        }
+      .feature-icon:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 194, 255, 0.2),
+          rgba(0, 118, 255, 0.1)
+        );
+        border-radius: 14px;
+        z-index: -1;
+      }
 
-        .feature-card:hover .feature-icon:before {
-            background: transparent;
-        }
+      .feature-card:hover .feature-icon {
+        transform: scale(1.1);
+        color: white;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        box-shadow: 0 6px 16px rgba(0, 118, 255, 0.25);
+      }
 
-        /* Í³Ò»Í·Í¼ÈİÆ÷ÑùÊ½ */
-        .header-container {
-            height: 300px;
-            border-radius: 20px;
-            overflow: hidden;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            box-shadow: 0 10px 25px var(--card-shadow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
+      .feature-card:hover .feature-icon:before {
+        background: transparent;
+      }
 
-        .header-container:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px var(--card-shadow);
-            border-color: var(--primary);
-        }
+      /* ç»Ÿä¸€å¤´å›¾å®¹å™¨æ ·å¼ */
+      .header-container {
+        height: 300px;
+        border-radius: 20px;
+        overflow: hidden;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        box-shadow: 0 10px 25px var(--card-shadow);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
 
-        /* Í·Í¼ÑùÊ½ - ±£³ÖÔ­±ÈÀı */
-        .header-image {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
+      .header-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px var(--card-shadow);
+        border-color: var(--primary);
+      }
 
-        .header-container:hover .header-image {
-            transform: scale(1.03);
-        }
+      /* å¤´å›¾æ ·å¼ - ä¿æŒåŸæ¯”ä¾‹ */
+      .header-image {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+      }
 
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 100;
-            background-color: var(--card-bg);
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            border: 1px solid var(--border-color);
-            transition: all 0.3s ease;
-            font-size: 1.25rem;
-            color: var(--primary);
-        }
-        
-        .theme-toggle:hover {
-            transform: rotate(20deg) scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            color: white;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-        
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .animate-fadeIn {
-            animation: fadeIn 0.6s ease forwards;
-            opacity: 0;
-        }
-        
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        
-        /* È·±£µ¥Ò³Ãæ²»³¬³öÆÁÄ» */
-        .container {
-            max-height: 100vh;
-            overflow-y: auto;
-            padding-bottom: 40px;
-        }
+      .header-container:hover .header-image {
+        transform: scale(1.03);
+      }
 
-        /* ×Ô¶¨ÒåÎÄ±¾ÑÕÉ« */
-        .text-soundcore {
-            color: var(--primary);
-        }
+      .theme-toggle {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 100;
+        background-color: var(--card-bg);
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        font-size: 1.25rem;
+        color: var(--primary);
+      }
 
-        /* ¸´Ñ¡±ê¼ÇÑÕÉ« */
-        .check-soundcore {
-            color: var(--accent);
-            font-size: 1.1rem;
-        }
+      .theme-toggle:hover {
+        transform: rotate(20deg) scale(1.1);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        color: white;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+      }
 
-        /* Âôµã±êÌâÑùÊ½ */
-        .feature-title {
-            font-weight: 700;
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            color: var(--heading-color);
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
         }
-
-        /* ÂôµãÁĞ±íÏîÑùÊ½ */
-        .feature-list-item {
-            padding: 12px 0;
-            position: relative;
-            transition: transform 0.2s ease;
+        100% {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
 
-        .feature-list-item:hover {
-            transform: translateX(3px);
-        }
+      .animate-fadeIn {
+        animation: fadeIn 0.6s ease forwards;
+        opacity: 0;
+      }
 
-        .feature-list-item:not(:last-child) {
-            border-bottom: 1px dashed var(--border-color);
-        }
+      .delay-1 {
+        animation-delay: 0.1s;
+      }
+      .delay-2 {
+        animation-delay: 0.2s;
+      }
+      .delay-3 {
+        animation-delay: 0.3s;
+      }
+      .delay-4 {
+        animation-delay: 0.4s;
+      }
 
-        .feature-content {
-            padding: 24px 28px;
-        }
+      /* ç¡®ä¿å•é¡µé¢ä¸è¶…å‡ºå±å¹• */
+      .container {
+        max-height: 100vh;
+        overflow-y: auto;
+        padding-bottom: 40px;
+      }
 
-        /* Ò³Ãæ±êÌâÇøÓò */
-        .hero-section {
-            position: relative;
-            overflow: hidden;
-            padding: 40px 0 30px;
-            margin-bottom: 40px;
-        }
+      /* è‡ªå®šä¹‰æ–‡æœ¬é¢œè‰² */
+      .text-soundcore {
+        color: var(--primary);
+      }
 
-        .hero-section:before {
-            content: '';
-            position: absolute;
-            top: -120px;
-            right: -100px;
-            width: 450px;
-            height: 450px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--primary-light) 0%, transparent 70%);
-            opacity: 0.08;
-            z-index: -1;
-        }
+      /* å¤é€‰æ ‡è®°é¢œè‰² */
+      .check-soundcore {
+        color: var(--accent);
+        font-size: 1.1rem;
+      }
 
-        .hero-section:after {
-            content: '';
-            position: absolute;
-            bottom: -120px;
-            left: -100px;
-            width: 350px;
-            height: 350px;
-            border-radius: 50%;
-            background: radial-gradient(circle, var(--accent-light) 0%, transparent 70%);
-            opacity: 0.08;
-            z-index: -1;
-        }
+      /* å–ç‚¹æ ‡é¢˜æ ·å¼ */
+      .feature-title {
+        font-weight: 700;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        color: var(--heading-color);
+      }
 
-        /* ·Ö¸ôÏß */
-        .divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--primary), transparent);
-            opacity: 0.15;
-            width: 100%;
-            margin: 30px 0;
-            position: relative;
-        }
+      /* å–ç‚¹åˆ—è¡¨é¡¹æ ·å¼ */
+      .feature-list-item {
+        padding: 12px 0;
+        position: relative;
+        transition: transform 0.2s ease;
+      }
 
-        .divider:before {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            top: -1px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 4px;
-        }
+      .feature-list-item:hover {
+        transform: translateX(3px);
+      }
 
-        /* Ö÷±êÌâÑùÊ½ */
+      .feature-list-item:not(:last-child) {
+        border-bottom: 1px dashed var(--border-color);
+      }
+
+      .feature-content {
+        padding: 24px 28px;
+      }
+
+      /* é¡µé¢æ ‡é¢˜åŒºåŸŸ */
+      .hero-section {
+        position: relative;
+        overflow: hidden;
+        padding: 40px 0 30px;
+        margin-bottom: 40px;
+      }
+
+      .hero-section:before {
+        content: "";
+        position: absolute;
+        top: -120px;
+        right: -100px;
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          var(--primary-light) 0%,
+          transparent 70%
+        );
+        opacity: 0.08;
+        z-index: -1;
+      }
+
+      .hero-section:after {
+        content: "";
+        position: absolute;
+        bottom: -120px;
+        left: -100px;
+        width: 350px;
+        height: 350px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          var(--accent-light) 0%,
+          transparent 70%
+        );
+        opacity: 0.08;
+        z-index: -1;
+      }
+
+      /* åˆ†éš”çº¿ */
+      .divider {
+        height: 2px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--primary),
+          transparent
+        );
+        opacity: 0.15;
+        width: 100%;
+        margin: 30px 0;
+        position: relative;
+      }
+
+      .divider:before {
+        content: "";
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        top: -1px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 4px;
+      }
+
+      /* ä¸»æ ‡é¢˜æ ·å¼ */
+      .main-title {
+        font-size: 3rem;
+        line-height: 1.2;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        position: relative;
+      }
+
+      @media (min-width: 768px) {
         .main-title {
-            font-size: 3rem;
-            line-height: 1.2;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            position: relative;
+          font-size: 4rem;
         }
+      }
 
-        @media (min-width: 768px) {
-            .main-title {
-                font-size: 4rem;
-            }
-        }
+      /* å‰¯æ ‡é¢˜æ ·å¼ */
+      .subtitle {
+        font-size: 1.125rem;
+        line-height: 1.6;
+        color: var(--text-color);
+        opacity: 0.85;
+        margin-bottom: 2rem;
+        font-weight: 400;
+        max-width: 600px;
+      }
 
-        /* ¸±±êÌâÑùÊ½ */
+      @media (min-width: 768px) {
         .subtitle {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            opacity: 0.85;
-            margin-bottom: 2rem;
-            font-weight: 400;
-            max-width: 600px;
+          font-size: 1.25rem;
         }
+      }
 
-        @media (min-width: 768px) {
-            .subtitle {
-                font-size: 1.25rem;
-            }
-        }
+      /* åº•éƒ¨åŒºåŸŸæ ·å¼ */
+      .footer {
+        margin-top: 70px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-color);
+        position: relative;
+      }
 
-        /* µ×²¿ÇøÓòÑùÊ½ */
-        .footer {
-            margin-top: 70px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            position: relative;
-        }
+      .footer:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 3px;
+        background: linear-gradient(90deg, var(--primary), var(--accent));
+        border-radius: 2px;
+      }
 
-        .footer:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
-        }
+      /* åˆ—è¡¨é¡¹æ–‡æœ¬æ ·å¼ */
+      .feature-text {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        transition: opacity 0.2s ease;
+      }
 
-        /* ÁĞ±íÏîÎÄ±¾ÑùÊ½ */
-        .feature-text {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            opacity: 0.9;
-            transition: opacity 0.2s ease;
-        }
+      .feature-list-item:hover .feature-text {
+        opacity: 1;
+      }
 
-        .feature-list-item:hover .feature-text {
-            opacity: 1;
-        }
-
-        /* ²úÆ·Ãû³ÆÑùÊ½ */
-        .product-name {
-            font-weight: 500;
-            padding: 0 2px;
-        }
+      /* äº§å“åç§°æ ·å¼ */
+      .product-name {
+        font-weight: 500;
+        padding: 0 2px;
+      }
     </style>
-</head>
-<body class="light">
+  </head>
+  <body class="light">
     <div class="container mx-auto px-5 py-10 max-w-7xl">
-        <button class="theme-toggle" id="themeToggle" aria-label="ÇĞ»»Ö÷Ìâ">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun hidden"></i>
-        </button>
+      <button class="theme-toggle" id="themeToggle" aria-label="åˆ‡æ¢ä¸»é¢˜">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun hidden"></i>
+      </button>
 
-        <!-- ²úÆ·±êÌâÓëÍ·Í¼ -->
-        <div class="hero-section animate-fadeIn">
-            <div class="flex flex-col md:flex-row items-center justify-between mb-8">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="main-title">
-                        <span class="title-gradient">ÉùÀ«ÔÃ¶¯ÆÁ</span>
-                    </h1>
-                    <p class="subtitle">
-                        ÖØĞÂ¶¨ÒåÒôÀÖÌåÑéµÄÖÇÄÜÏÔÊ¾ÆÁ£¬½«ÊÓÌı»¥¶¯ÍÆÏòÎ´À´£¬ÈÃÄúµÄÒôÀÖ²»Ö»ÊÇÌı¼û£¬¸üÄÜ¿´¼û¡¢¸ĞÊÜºÍ»¥¶¯¡£
-                    </p>
-                </div>
-                <div class="md:w-1/2 grid grid-cols-2 gap-6">
-                    <!-- Í·Í¼1 -->
-                    <div class="header-container">
-                        <img src="https://i.miji.bid/2025/03/13/e1fc715debe15e247bb7a13b73815f67.png" alt="²úÆ·Í·Í¼1" class="header-image">
-                    </div>
-                    <!-- Í·Í¼2 -->
-                    <div class="header-container">
-                        <img src="https://im.gurl.eu.org/file/AgACAgEAAxkDAAI3J2fSqp5ICNbhxFbFDlWhVGGLg937AAIYrTEbtPuZRsvxacKVhDD-AQADAgADeAADNgQ.png" alt="²úÆ·Í·Í¼2" class="header-image">
-                    </div>
-                </div>
+      <!-- äº§å“æ ‡é¢˜ä¸å¤´å›¾ -->
+      <div class="hero-section animate-fadeIn">
+        <div
+          class="flex flex-col md:flex-row items-center justify-between mb-8"
+        >
+          <div class="md:w-1/2 mb-10 md:mb-0">
+            <h1 class="main-title">
+              <span class="title-gradient">å£°é˜”æ‚¦åŠ¨å±</span>
+            </h1>
+            <p class="subtitle">
+              é‡æ–°å®šä¹‰éŸ³ä¹ä½“éªŒçš„æ™ºèƒ½æ˜¾ç¤ºå±ï¼Œå°†è§†å¬äº’åŠ¨æ¨å‘æœªæ¥ï¼Œè®©æ‚¨çš„éŸ³ä¹ä¸åªæ˜¯å¬è§ï¼Œæ›´èƒ½çœ‹è§ã€æ„Ÿå—å’Œäº’åŠ¨ã€‚
+            </p>
+          </div>
+          <div class="md:w-1/2 grid grid-cols-2 gap-6">
+            <!-- å¤´å›¾1 -->
+            <div class="header-container">
+              <img
+                src="https://i.miji.bid/2025/03/13/e1fc715debe15e247bb7a13b73815f67.png"
+                alt="äº§å“å¤´å›¾1"
+                class="header-image"
+              />
             </div>
+            <!-- å¤´å›¾2 -->
+            <div class="header-container">
+              <img
+                src="https://im.gurl.eu.org/file/AgACAgEAAxkDAAI3J2fSqp5ICNbhxFbFDlWhVGGLg937AAIYrTEbtPuZRsvxacKVhDD-AQADAgADeAADNgQ.png"
+                alt="äº§å“å¤´å›¾2"
+                class="header-image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider" id="features"></div>
+
+      <!-- å–ç‚¹å±•ç¤º -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+        <!-- å–ç‚¹1: è§†å¬åŒäº« -->
+        <div class="feature-card animate-fadeIn delay-1">
+          <div class="feature-image-container">
+            <img
+              src="https://im.gurl.eu.org/file/AgACAgEAAxkDAAI3KGfSqrcQBIp7S0eeJWd90cc6UoQfAAIZrTEbtPuZRrRpVpfhe4U5AQADAgADeAADNgQ.png"
+              alt="è§†å¬åŒäº«"
+              class="feature-image"
+            />
+          </div>
+          <div class="feature-content">
+            <div class="flex items-center mb-6">
+              <div class="feature-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <h2 class="text-xl lg:text-2xl feature-title">
+                è§†å¬åŒäº«ï¼šå¢å¼ºéŸ³ä¹ä½“éªŒ
+              </h2>
+            </div>
+            <ul class="space-y-2">
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  <span class="product-name">Anka</span
+                  >æ™ºèƒ½å½¢è±¡ä½œä¸ºä¸»è§†è§‰å…ƒç´ ï¼Œæ ¹æ®éŸ³ä¹ç±»å‹å’ŒèŠ‚å¥å‘ˆç°ä¸åŒçš„åŠ¨ç”»å’Œå½¢è±¡å˜ä½“
+                </span>
+              </li>
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  æ™ºèƒ½AIç®—æ³•å­¦ä¹ ç”¨æˆ·åå¥½ï¼Œè°ƒæ•´ååº”æ¨¡å¼ï¼Œä¸ç”¨æˆ·å»ºç«‹æƒ…æ„Ÿè¿æ¥
+                </span>
+              </li>
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  é€šè¿‡éŸ³é¢‘è¯†åˆ«ç®—æ³•ï¼Œå±•ç¤ºéŸ³ä¹é¢‘è°±ã€å‡è¡¡å™¨åŠ¨ç”»å’Œä¹å™¨åˆ†å¸ƒçš„è§†è§‰å£°åœº
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div class="divider" id="features"></div>
-
-        <!-- ÂôµãÕ¹Ê¾ -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <!-- Âôµã1: ÊÓÌıÍ¬Ïí -->
-            <div class="feature-card animate-fadeIn delay-1">
-                <div class="feature-image-container">
-                    <img src="https://im.gurl.eu.org/file/AgACAgEAAxkDAAI3KGfSqrcQBIp7S0eeJWd90cc6UoQfAAIZrTEbtPuZRrRpVpfhe4U5AQADAgADeAADNgQ.png" alt="ÊÓÌıÍ¬Ïí" class="feature-image">
-                </div>
-                <div class="feature-content">
-                    <div class="flex items-center mb-6">
-                        <div class="feature-icon">
-                            <i class="fas fa-music"></i>
-                        </div>
-                        <h2 class="text-xl lg:text-2xl feature-title">ÊÓÌıÍ¬Ïí£ºÔöÇ¿ÒôÀÖÌåÑé</h2>
-                    </div>
-                    <ul class="space-y-2">
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                <span class="product-name">Anka</span>ÖÇÄÜĞÎÏó×÷ÎªÖ÷ÊÓ¾õÔªËØ£¬¸ù¾İÒôÀÖÀàĞÍºÍ½Ú×à³ÊÏÖ²»Í¬µÄ¶¯»­ºÍĞÎÏó±äÌå
-                            </span>
-                        </li>
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                ÖÇÄÜAIËã·¨Ñ§Ï°ÓÃ»§Æ«ºÃ£¬µ÷Õû·´Ó¦Ä£Ê½£¬ÓëÓÃ»§½¨Á¢Çé¸ĞÁ¬½Ó
-                            </span>
-                        </li>
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                Í¨¹ıÒôÆµÊ¶±ğËã·¨£¬Õ¹Ê¾ÒôÀÖÆµÆ×¡¢¾ùºâÆ÷¶¯»­ºÍÀÖÆ÷·Ö²¼µÄÊÓ¾õÉù³¡
-                            </span>
-                        </li>
-                    </ul>
-                </div>
+        <!-- å–ç‚¹2: éŸ³ä¹äº’åŠ¨ -->
+        <div class="feature-card animate-fadeIn delay-2">
+          <div class="feature-image-container">
+            <img
+              src="https://im.gurl.eu.org/file/AgACAgEAAxkDAAI3KmfSqu27CRAGISDwYm7WzAABnE0JzAACGq0xG7T7mUbmETDfDk0eUAEAAwIAA3gAAzYE.png"
+              alt="éŸ³ä¹äº’åŠ¨"
+              class="feature-image"
+            />
+          </div>
+          <div class="feature-content">
+            <div class="flex items-center mb-6">
+              <div class="feature-icon">
+                <i class="fas fa-sliders-h"></i>
+              </div>
+              <h2 class="text-xl lg:text-2xl feature-title">
+                éŸ³ä¹äº’åŠ¨ï¼šä»å¬éŸ³ä¹åˆ°ç©éŸ³ä¹
+              </h2>
             </div>
-
-            <!-- Âôµã2: ÒôÀÖ»¥¶¯ -->
-            <div class="feature-card animate-fadeIn delay-2">
-                <div class="feature-image-container">
-                    <img src="https://im.gurl.eu.org/file/AgACAgEAAxkDAAI3KmfSqu27CRAGISDwYm7WzAABnE0JzAACGq0xG7T7mUbmETDfDk0eUAEAAwIAA3gAAzYE.png" alt="ÒôÀÖ»¥¶¯" class="feature-image">
-                </div>
-                <div class="feature-content">
-                    <div class="flex items-center mb-6">
-                        <div class="feature-icon">
-                            <i class="fas fa-sliders-h"></i>
-                        </div>
-                        <h2 class="text-xl lg:text-2xl feature-title">ÒôÀÖ»¥¶¯£º´ÓÌıÒôÀÖµ½ÍæÒôÀÖ</h2>
-                    </div>
-                    <ul class="space-y-2">
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                Á¬½ÓÒôÏä»ò¶ú»úºó£¬Ğ¡ÆÁ»¯Éíminiµ÷ÒôÌ¨£¬×Ô¶¨Òåµ÷ÕûÆµÂÊ¡¢¶¯Ì¬ºÍ»ìÏìĞ§¹û
-                            </span>
-                        </li>
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                Ê¶±ğÒôÀÖ½Ú×à£¬Í¨¹ı´¥ÆÁ»òÌå¸Ğ·½Ê½ÊµÏÖÓëÒôÀÖµÄ»¥¶¯ÌåÑé
-                            </span>
-                        </li>
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                ½«µ¥ÏòÒôÀÖÏíÊÜ×ª±äÎªË«Ïò»¥¶¯£¬´øÀ´È«ĞÂµÄÒôÀÖÌåÑé
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Âôµã3: ²Ù¿ØÀÖÈ¤ -->
-            <div class="feature-card animate-fadeIn delay-3">
-                <div class="feature-image-container">
-                    <img src="https://im.gurl.eu.org/file/AgACAgEAAxkDAAI3K2fSqwABGTpAhBQbxZJ75rx1WHeCjAACG60xG7T7mUYqx0RZjc44CQEAAwIAA3gAAzYE.png" alt="²Ù¿ØÀÖÈ¤" class="feature-image">
-                </div>
-                <div class="feature-content">
-                    <div class="flex items-center mb-6">
-                        <div class="feature-icon">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <h2 class="text-xl lg:text-2xl feature-title">²Ù¿ØÀÖÈ¤£ºÈ¤Î¶¿ØÖÆÌåÑé</h2>
-                    </div>
-                    <ul class="space-y-2">
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                ³ÉÎªÓ°ÒôÖĞÑë¿ØÖÆÌ¨£¬Ö±¹Û¿ì½İµ÷½Ú¶ú»úÒôÁ¿¡¢ÇĞ¸èºÍ½µÔëµÈ¹¦ÄÜ
-                            </span>
-                        </li>
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                PartyÒôÏäµÄÒôÁ¿¡¢µÆĞ§ºÍÇĞ¸èµÈ¹¦ÄÜÔ¶³ÌÇáËÉ¿ØÖÆ
-                            </span>
-                        </li>
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                ÊµÏÖÒôÀÖÔÚ<span class="product-name">Anker</span>Éè±¸ÉÏµÄ×ÔÓÉÁ÷×ª£¬´øÀ´ÒÇÊ½¸ĞÊ®×ãµÄ²Ù¿ØÌåÑé
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Âôµã4: Çé¸ĞÅã°é -->
-            <div class="feature-card animate-fadeIn delay-4">
-                <div class="feature-image-container">
-                    <img src="https://im.gurl.eu.org/file/AgACAgEAAxkDAAI3LGfSqxd6XIt2GWfZkQyRrBnaSpuzAAKVrTEb2FiZRouHFLxzq4tRAQADAgADeAADNgQ.png" alt="Çé¸ĞÅã°é" class="feature-image">
-                </div>
-                <div class="feature-content">
-                    <div class="flex items-center mb-6">
-                        <div class="feature-icon">
-                            <i class="fas fa-heart"></i>
-                        </div>
-                        <h2 class="text-xl lg:text-2xl feature-title">Çé¸ĞÅã°é£¬¸öĞÔÅäÊÎ</h2>
-                    </div>
-                    <ul class="space-y-2">
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                ·ÇÒôÀÖ³¡¾°ÏÂ£¬<span class="product-name">Anka</span>ÊÇÌá¹©Åã°é¡¢Ö§³Ö»¥¶¯µÄÈü²©Friend
-                            </span>
-                        </li>
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                ¿É×÷Îª×À´î¡¢´©´÷¡¢±³°ü¹ÒÊÎ»òÎü¸½ÔÚ<span class="product-name">Anker</span>Éè±¸ÉÏ£¬ÏÔÊ¾¸öĞÔ»¯±ÚÖ½
-                            </span>
-                        </li>
-                        <li class="feature-list-item flex items-start">
-                            <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
-                            <span class="feature-text">
-                                Ìá¹©Ô¤ÖÃ¶àÖÖ·ç¸ñĞÎÏó¡¢ÁªÃûIP¡¢¶¯Ì¬emojiºÍÈÈÃÅMEMEµÈ£¬Ö§³ÖÓÃ»§×Ô¶¨ÒåÉÏ´«
-                            </span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <ul class="space-y-2">
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  è¿æ¥éŸ³ç®±æˆ–è€³æœºåï¼Œå°å±åŒ–èº«miniè°ƒéŸ³å°ï¼Œè‡ªå®šä¹‰è°ƒæ•´é¢‘ç‡ã€åŠ¨æ€å’Œæ··å“æ•ˆæœ
+                </span>
+              </li>
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  è¯†åˆ«éŸ³ä¹èŠ‚å¥ï¼Œé€šè¿‡è§¦å±æˆ–ä½“æ„Ÿæ–¹å¼å®ç°ä¸éŸ³ä¹çš„äº’åŠ¨ä½“éªŒ
+                </span>
+              </li>
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  å°†å•å‘éŸ³ä¹äº«å—è½¬å˜ä¸ºåŒå‘äº’åŠ¨ï¼Œå¸¦æ¥å…¨æ–°çš„éŸ³ä¹ä½“éªŒ
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <!-- µ×²¿ -->
-        <div class="footer text-center animate-fadeIn">
-            <p class="text-sm opacity-80">? 2025 <span class="text-soundcore font-medium">ÉùÀ«ÔÃ¶¯ÆÁ</span> ¡¤ ²úÆ·¸ÅÄî²âÊÔ ¡¤ ×¢Òâ±£ÃÜ</p>
+        <!-- å–ç‚¹3: æ“æ§ä¹è¶£ -->
+        <div class="feature-card animate-fadeIn delay-3">
+          <div class="feature-image-container">
+            <img
+              src="https://im.gurl.eu.org/file/AgACAgEAAxkDAAI3K2fSqwABGTpAhBQbxZJ75rx1WHeCjAACG60xG7T7mUYqx0RZjc44CQEAAwIAA3gAAzYE.png"
+              alt="æ“æ§ä¹è¶£"
+              class="feature-image"
+            />
+          </div>
+          <div class="feature-content">
+            <div class="flex items-center mb-6">
+              <div class="feature-icon">
+                <i class="fas fa-gamepad"></i>
+              </div>
+              <h2 class="text-xl lg:text-2xl feature-title">
+                æ“æ§ä¹è¶£ï¼šè¶£å‘³æ§åˆ¶ä½“éªŒ
+              </h2>
+            </div>
+            <ul class="space-y-2">
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  æˆä¸ºå½±éŸ³ä¸­å¤®æ§åˆ¶å°ï¼Œç›´è§‚å¿«æ·è°ƒèŠ‚è€³æœºéŸ³é‡ã€åˆ‡æ­Œå’Œé™å™ªç­‰åŠŸèƒ½
+                </span>
+              </li>
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  PartyéŸ³ç®±çš„éŸ³é‡ã€ç¯æ•ˆå’Œåˆ‡æ­Œç­‰åŠŸèƒ½è¿œç¨‹è½»æ¾æ§åˆ¶
+                </span>
+              </li>
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  å®ç°éŸ³ä¹åœ¨<span class="product-name">Anker</span
+                  >è®¾å¤‡ä¸Šçš„è‡ªç”±æµè½¬ï¼Œå¸¦æ¥ä»ªå¼æ„Ÿåè¶³çš„æ“æ§ä½“éªŒ
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <!-- å–ç‚¹4: æƒ…æ„Ÿé™ªä¼´ -->
+        <div class="feature-card animate-fadeIn delay-4">
+          <div class="feature-image-container">
+            <img
+              src="https://im.gurl.eu.org/file/AgACAgEAAxkDAAI3LGfSqxd6XIt2GWfZkQyRrBnaSpuzAAKVrTEb2FiZRouHFLxzq4tRAQADAgADeAADNgQ.png"
+              alt="æƒ…æ„Ÿé™ªä¼´"
+              class="feature-image"
+            />
+          </div>
+          <div class="feature-content">
+            <div class="flex items-center mb-6">
+              <div class="feature-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <h2 class="text-xl lg:text-2xl feature-title">
+                æƒ…æ„Ÿé™ªä¼´ï¼Œä¸ªæ€§é…é¥°
+              </h2>
+            </div>
+            <ul class="space-y-2">
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  ééŸ³ä¹åœºæ™¯ä¸‹ï¼Œ<span class="product-name">Anka</span
+                  >æ˜¯æä¾›é™ªä¼´ã€æ”¯æŒäº’åŠ¨çš„èµ›åšFriend
+                </span>
+              </li>
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  å¯ä½œä¸ºæ¡Œæ­ã€ç©¿æˆ´ã€èƒŒåŒ…æŒ‚é¥°æˆ–å¸é™„åœ¨<span class="product-name"
+                    >Anker</span
+                  >è®¾å¤‡ä¸Šï¼Œæ˜¾ç¤ºä¸ªæ€§åŒ–å£çº¸
+                </span>
+              </li>
+              <li class="feature-list-item flex items-start">
+                <i class="fas fa-check-circle check-soundcore mt-1 mr-3"></i>
+                <span class="feature-text">
+                  æä¾›é¢„ç½®å¤šç§é£æ ¼å½¢è±¡ã€è”åIPã€åŠ¨æ€emojiå’Œçƒ­é—¨MEMEç­‰ï¼Œæ”¯æŒç”¨æˆ·è‡ªå®šä¹‰ä¸Šä¼ 
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- åº•éƒ¨ -->
+      <div class="footer text-center animate-fadeIn">
+        <p class="text-sm opacity-80">
+          Â© 2025 <span class="text-soundcore font-medium">å£°é˜”æ‚¦åŠ¨å±</span> Â·
+          äº§å“æ¦‚å¿µæµ‹è¯• Â· æ³¨æ„ä¿å¯†
+        </p>
+      </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Ö÷ÌâÇĞ»»¹¦ÄÜ
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-            const moonIcon = document.querySelector('.fa-moon');
-            const sunIcon = document.querySelector('.fa-sun');
-            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-            
-            // ³õÊ¼»¯Ö÷Ìâ
-            if (prefersDarkScheme.matches) {
-                body.classList.remove('light');
-                body.classList.add('dark');
-                moonIcon.classList.add('hidden');
-                sunIcon.classList.remove('hidden');
-            }
-            
-            themeToggle.addEventListener('click', function() {
-                if (body.classList.contains('light')) {
-                    body.classList.remove('light');
-                    body.classList.add('dark');
-                    moonIcon.classList.add('hidden');
-                    sunIcon.classList.remove('hidden');
-                } else {
-                    body.classList.remove('dark');
-                    body.classList.add('light');
-                    moonIcon.classList.remove('hidden');
-                    sunIcon.classList.add('hidden');
-                }
-            });
-            
-            // ¼àÌı¹ö¶¯ÒÔ´¥·¢¶¯»­
-            const animatedElements = document.querySelectorAll('.animate-fadeIn');
-            
-            // Ê¹ÓÃIntersection Observer API¼ì²âÔªËØÊÇ·ñÔÚÊÓ¿ÚÄÚ
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        // Ìí¼ÓÀàÒÔ´¥·¢¶¯»­
-                        entry.target.style.animationPlayState = 'running';
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            // ¹Û²ìËùÓĞĞèÒª¶¯»­µÄÔªËØ
-            animatedElements.forEach(el => {
-                el.style.animationPlayState = 'paused';
-                observer.observe(el);
-            });
+      document.addEventListener("DOMContentLoaded", function () {
+        // ä¸»é¢˜åˆ‡æ¢åŠŸèƒ½
+        const themeToggle = document.getElementById("themeToggle");
+        const body = document.body;
+        const moonIcon = document.querySelector(".fa-moon");
+        const sunIcon = document.querySelector(".fa-sun");
+        const prefersDarkScheme = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        );
+
+        // åˆå§‹åŒ–ä¸»é¢˜
+        if (prefersDarkScheme.matches) {
+          body.classList.remove("light");
+          body.classList.add("dark");
+          moonIcon.classList.add("hidden");
+          sunIcon.classList.remove("hidden");
+        }
+
+        themeToggle.addEventListener("click", function () {
+          if (body.classList.contains("light")) {
+            body.classList.remove("light");
+            body.classList.add("dark");
+            moonIcon.classList.add("hidden");
+            sunIcon.classList.remove("hidden");
+          } else {
+            body.classList.remove("dark");
+            body.classList.add("light");
+            moonIcon.classList.remove("hidden");
+            sunIcon.classList.add("hidden");
+          }
         });
+
+        // ç›‘å¬æ»šåŠ¨ä»¥è§¦å‘åŠ¨ç”»
+        const animatedElements = document.querySelectorAll(".animate-fadeIn");
+
+        // ä½¿ç”¨Intersection Observer APIæ£€æµ‹å…ƒç´ æ˜¯å¦åœ¨è§†å£å†…
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // æ·»åŠ ç±»ä»¥è§¦å‘åŠ¨ç”»
+                entry.target.style.animationPlayState = "running";
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        // è§‚å¯Ÿæ‰€æœ‰éœ€è¦åŠ¨ç”»çš„å…ƒç´ 
+        animatedElements.forEach((el) => {
+          el.style.animationPlayState = "paused";
+          observer.observe(el);
+        });
+      });
     </script>
-</body>
+  </body>
 </html>
